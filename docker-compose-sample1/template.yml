@@ -1,0 +1,17 @@
+version: '3.1' # min 2.0
+
+services:  # Container ismi
+  servicename: # --name
+    image: # image
+    command: # Opt
+    environment: # Opt, -e
+    volumes: # Opt, -v
+
+  servicename2:
+
+  servicename3:
+
+
+volumes: # Optional, docker volume create
+
+networks: # Optional, docker network create

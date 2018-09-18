@@ -1,0 +1,11 @@
+version: '3.1'
+
+# docker container run -p 80:80 -v $(pwd):/site burakalp/test
+
+services:
+  test:
+    image: burakalp/test
+    volumes:
+      - .:/test
+    ports:
+      - '80:80'
