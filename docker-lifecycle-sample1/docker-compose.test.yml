@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+
+  nginx:
+    image: custom-nginx:latest
+    build: .
+    ports:
+      - "80:80"
+
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-pass
+      - MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo-user
+    secrets:
+      - mongo-pass
+      - mongo-user
+    volumes:
+      - ./sample-data:/data/db
+secrets:
+  mongo-pass:
+    file: mongo-pass.txt
+  mongo-user:
+    file: mongo-user.txt

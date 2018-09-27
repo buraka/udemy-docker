@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+
+  nginx:
+    ports:
+      - "80:80"
+    volumes:
+      - nginx-template:/etc/nginx/conf.d/mysite.template
+
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-pass
+      - MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo-user
+    secrets:
+      - mongo-pass
+      - mongo-user
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  nginx-template:
+  mongo-data:
+
+secrets:
+  mongo-pass:
+    external: true
+  mongo-user:
+    external: true

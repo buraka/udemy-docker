@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+
+  nginx:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - nginx-template:/etc/nginx/conf.d/mysite.template
+      - ./themes:/var/www/html/themes
+
+  mongo:
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-pass
+      - MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo-user
+    secrets:
+      - mongo-pass
+      - mongo-user
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  nginx-template:
+  mongo-data:
+
+secrets:
+  mongo-pass:
+    file: mongo-pass.txt
+  mongo-user:
+    file: mongo-user.txt

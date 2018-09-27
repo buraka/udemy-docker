@@ -1,0 +1,21 @@
+version: "3.1"
+
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    secrets:
+      - mongo-user
+      - mongo-pass
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongo-pass
+      MONGO_INITDB_ROOT_USERNAME_FILE: /run/secrets/mongo-user
+
+secrets:
+  mongo-user:
+    file: ./mongo-user.txt
+  mongo-pass:
+    file: ./mongo-pass.txt
+
+

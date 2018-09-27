@@ -1,0 +1,9 @@
+version: '3.1'
+
+services:
+
+  nginx:
+    image: custom-nginx:latest
+
+  mongo:
+    image: mongo:latest

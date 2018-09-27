@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  proxy:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports:
+      - '80:80'
+  web:
+    image: httpd
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
