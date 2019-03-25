@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 
-const URL = 'http://localhost/api'
+const URL = 'http://134.209.231.65:8080/api'
 
 class App extends Component {
   state = {
