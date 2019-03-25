@@ -21,7 +21,7 @@ db.once("open", () => console.log("connected to the database"));
 
 db.on("error", () => {
   console.log("MongoDB connection error:")
-  mongoose.connect(dbURI, {server:{auto_reconnect:true}});
+  mongoose.connect(dbRoute, {server:{auto_reconnect:true}});
 });
 
 app.use(bodyParser.urlencoded({ extended: false }));
