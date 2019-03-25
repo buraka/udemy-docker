@@ -1,3 +1,3 @@
-FROM nginx:1.14
+FROM nginx
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf

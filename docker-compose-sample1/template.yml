@@ -6,11 +6,11 @@ services:  # Container ismi
     command: # Opt
     environment: # Opt, -e
     volumes: # Opt, -v
+    ports: # Opt, -p
 
   servicename2:
 
   servicename3:
-
 
 volumes: # Optional, docker volume create
 

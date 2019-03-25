@@ -18,16 +18,16 @@ services:
       - mysql-secondary
   proxysql:
     image: percona/proxysql
-    environment: 
+    environment:
       - CLUSTER_NAME=mycluster
       - CLUSTER_JOIN=mysql-primary,mysql-secondary
       - MYSQL_ROOT_PASSWORD=mypass
-   
+
       - MYSQL_PROXY_USER=proxyuser
       - MYSQL_PROXY_PASSWORD=s3cret
   mysql-primary:
     image: percona/percona-xtradb-cluster:5.7
-    environment: 
+    environment:
       - CLUSTER_NAME=mycluster
       - MYSQL_ROOT_PASSWORD=mypass
       - MYSQL_DATABASE=ghost
@@ -35,10 +35,10 @@ services:
       - MYSQL_PROXY_PASSWORD=s3cret
   mysql-secondary:
     image: percona/percona-xtradb-cluster:5.7
-    environment: 
+    environment:
       - CLUSTER_NAME=mycluster
       - MYSQL_ROOT_PASSWORD=mypass
-   
+
       - CLUSTER_JOIN=mysql-primary
       - MYSQL_PROXY_USER=proxyuser
       - MYSQL_PROXY_PASSWORD=s3cret
