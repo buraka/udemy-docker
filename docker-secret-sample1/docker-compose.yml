@@ -17,5 +17,3 @@ secrets:
     file: ./mongo-user.txt
   mongo-pass:
     file: ./mongo-pass.txt
-
-
